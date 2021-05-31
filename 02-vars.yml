@@ -21,7 +21,19 @@
        URL: task.example.com 
 
 #Variable precedences(High Priority)
+# command line vars with -e
 # Tasks
 # vars_files
 # vars_prompt
 # vars
+# inventory vars
+
+- name: Demo on dynamic variables
+  hosts: all
+  tasks:
+    - name: Gathering Todays Date
+      shell: date +%F
+      register: out
+    - name: Print Date
+      debug:
+      msg: Date = {{ out }}
