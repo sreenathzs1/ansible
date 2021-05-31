@@ -1,10 +1,14 @@
 - name: Demo on the Variables
   hosts: all
-  vars_files:
-    - example-vars.yml
+  #vars_files:
+  #  - example-vars.yml
   vars:
     URL: play.example.com
     PROJECT: example
+  vars_prompt:
+    - name: URL
+      prompt: Enter URL
+      private: no
   
   tasks:
     - name: Print URL
@@ -16,7 +20,8 @@
       vars:
        URL: task.example.com 
 
-#Variable precedences
+#Variable precedences(High Priority)
 # Tasks
-# vars-files
+# vars_files
+# vars_prompt
 # vars
