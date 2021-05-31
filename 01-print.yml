@@ -1,0 +1,7 @@
+- name: Demo on print massages  
+  hosts:  all
+  tasks: 
+    - name: print Sreenath
+      debug: 
+        msg: Sreenath ZelarSoft!!
+
