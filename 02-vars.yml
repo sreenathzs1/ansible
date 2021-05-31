@@ -1,10 +1,11 @@
 - name: Demo on the Variables
   hosts: all
+  vars_files:
+    - example-vars.yml
   vars:
     URL: play.example.com
     PROJECT: example
-  vars_files:
-    - example-vars.yml
+  
   tasks:
     - name: Print URL
       debug: 
@@ -14,3 +15,8 @@
         msg: URL = {{ URL }}
       vars:
        URL: task.example.com 
+
+#Variable precedences
+# Tasks
+# vars-files
+# vars
