@@ -49,8 +49,8 @@
         msg: DATE = {{DATE}}
 
 - name: Print on some facts
-    hosts: all
-    tasks:
+  hosts: all
+  tasks:
       - name: Print facts
         debug:
           msg: Hostname = {{ ansible_hostname }}
