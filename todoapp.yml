@@ -2,11 +2,9 @@
   hosts: all
   become: yes
   tasks:
-    - name: Install NGINX, Nodejs, npm
+    - name: Install NGINX
       apt:
         name: nginx
-        name: Nodejs
-        name: npm
         update_cache: yes
         state: present
     
