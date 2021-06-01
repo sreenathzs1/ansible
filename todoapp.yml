@@ -2,9 +2,11 @@
   hosts: all
   become: yes
   tasks:
-    - name: Install NGINX
+    - name: Install NGINX, Nodejs, npm
       apt:
         name: nginx
+        name: Nodejs
+        name: npm
         update_cache: yes
         state: present
     
@@ -13,3 +15,11 @@
         state: started
         name: nginx
         enabled: yes
+
+  - name: Download Artifacts from Nexus
+    get-url:
+      url:
+      dest: /var/www/html
+      username: admin 
+      password: admin123
+
