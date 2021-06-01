@@ -1,0 +1,9 @@
+- name: SetUp TODOS APP Project
+  hosts: all
+  become: yes
+  tasks:
+    - name: Apt Update
+      apt:
+        name: nginx
+        update_cache: yes
+        state: present
