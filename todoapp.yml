@@ -17,7 +17,7 @@
         enabled: yes
 
   - name: Download Artifacts from Nexus
-    get-url:
+    get_url:
       url: http://172.31.11.166:8081/repository/frontend/frontend-{{APP_VERSION}}.zip
       dest: /var/www/html
       username: admin 
