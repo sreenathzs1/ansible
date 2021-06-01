@@ -31,9 +31,19 @@
 - name: Demo on dynamic variables
   hosts: all
   tasks:
+
     - name: Gathering Todays Date
       shell: date +%F
       register: out
+
     - name: Print Date
       debug:
         msg: Date = {{ out.stdout }}
+
+    - name: Set a fact
+      set_fact:
+      DATE: "{{ out.stdout }}"
+
+    - name: Print DATE
+      debug:
+        msg: DATE = {{DATE}}
