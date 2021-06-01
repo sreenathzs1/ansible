@@ -48,7 +48,7 @@
       debug:
         msg: DATE = {{DATE}}
 
-  - name: Print on some facts
+- name: Print on some facts
     hosts: all
     tasks:
       - name: Print facts
