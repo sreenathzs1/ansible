@@ -16,7 +16,7 @@
         password: admin123
 
     - name: Unzip the Downloaded Content
-       unarchive:
+      unarchive:
           src: /var/www/html/frontend-0.0.7.zip
           dest: /var/www/html
           remote_src: yes
