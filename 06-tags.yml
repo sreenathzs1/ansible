@@ -1,0 +1,14 @@
+- name: Demo on Conditions
+  hosts: all
+  tasks:
+    - name: Print CentOS
+      debug:
+        msg: Hello Zelarsoft_Centos
+      tags:
+        - CentOS
+
+    - name: Print Ubuntu
+      debug:
+        msg: Hello Sree_Ubuntu
+      tags:
+        - Ubuntu

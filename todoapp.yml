@@ -2,7 +2,14 @@
   hosts: all
   become: yes
   roles:
-    - frontend
+    - role: frontend
+      tags: frontend
+      when: COMPONENT == "frontend"
+
+    - role: users
+      tags: users
+      when: COMPONENT == "users"
+
 
 
 
