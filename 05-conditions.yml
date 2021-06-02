@@ -1,0 +1,10 @@
+- name: Demo on Conditions
+  hosts: all
+  tasks:
+    - name: Print company
+      debug:
+        msg: Hello Zelarsoft
+    
+    - name: Print sreenath
+      debug:
+        msg: Hello Sree
