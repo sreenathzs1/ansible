@@ -24,7 +24,7 @@
 
     - name: Replace content
       replace:
-        path: /etc/nginx/sites-enable/default
+        path: /etc/nginx/sites-enabled/default
         regexp: '/var/www/html'
         replace: '/var/www/html/frontend/dist'
 
