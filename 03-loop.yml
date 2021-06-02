@@ -1,0 +1,10 @@
+- name: Demo on loop
+  hosts:
+    - name: print Friends Names
+      debug:
+        msg: "Friends = {{ item }}"
+      loop:
+        - Narendra
+        - Ramesh
+        - Durga
+        - GangaPrasad
