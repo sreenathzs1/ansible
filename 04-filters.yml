@@ -1,0 +1,8 @@
+- name: Demo on filters
+  hosts: all
+  vars:
+    URL: https://guthub.com/sreenathzs1/frontend.zip
+  tasks:
+    - name: Print filename of URL
+      debug:
+        msg: "{{ URL | urlsplit }}"

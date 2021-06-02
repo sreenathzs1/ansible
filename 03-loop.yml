@@ -8,3 +8,30 @@
         - Ramesh
         - Durga
         - GangaPrasad
+      - name: Create Servers
+        debug:
+          msg: "{{ item.name }}"
+        loop:
+          - name: server1
+            disks: 3gb
+            ram: 15gb
+            network:
+              nic01: 100GB
+              nic02: 10 GB
+          - name: server2
+            disks: 30gb
+            ram: 15gb
+            network:
+              nic01: 100GB
+              nic02: 100GB
+          loop-control:
+            label: "{{ item.name }}"
+      - name: Count our friends
+        debug:
+          msg: "{{ item }} with index {{ my_idx }}"
+        loop:
+          - Narendra
+          - Durga
+          - Ganga
+        loop_control:
+          index-var: my_idx
