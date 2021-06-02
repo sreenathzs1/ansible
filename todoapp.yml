@@ -37,4 +37,4 @@
     - name: NPM Start
       npm:
         path: /var/www/html/
-        state: started
+        state: present
