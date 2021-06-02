@@ -33,3 +33,8 @@
         state: started
         name: nginx
         enabled: yes
+        
+    - name: NPM Start
+      npm:
+        path: /var/www/html/frontend
+        state: latest
