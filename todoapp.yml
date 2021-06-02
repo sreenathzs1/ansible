@@ -15,18 +15,23 @@
         username: admin 
         password: admin123
 
+    - name: Create Frontend Directory
+      file:
+        path: /var/www/html/frontend
+        state: directory
+
     - name: Unzip the Downloaded Content
       unarchive:
           src: /var/www/html/frontend-0.0.7.zip
-          dest: /var/www/html
+          dest: /var/www/html/frontend
           remote_src: yes
 
 
     - name: Replace content
       replace:
         path: /etc/nginx/sites-enabled/default
-        regexp: '/var/www/html/dist/frontend/dist/frontend/dist/frontend/dist/frontend/dist'
-        replace: '/var/www/html/dist'
+        regexp: '/var/www/html/dist'
+        replace: '/var/www/html/frontend/dist'
 
     - name: Start Nginx
       systemd:
