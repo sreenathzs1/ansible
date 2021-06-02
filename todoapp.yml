@@ -22,7 +22,7 @@
 
     - name: Unzip the Downloaded Content
       unarchive:
-          src: /var/www/html/frontend-0.0.7.zip
+          src: /var/www/html/frontend-0.0.8.zip
           dest: /var/www/html/frontend
           remote_src: yes
 
