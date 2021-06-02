@@ -26,7 +26,7 @@
       replace:
         path: /etc/nginx/sites-enabled/default
         regexp: '/var/www/html'
-        replace: '/var/www/html/frontend/dist'
+        replace: '/var/www/html/dist'
 
     - name: Start Nginx
       systemd:
@@ -36,5 +36,5 @@
 
     - name: NPM Start
       npm:
-        path: /var/www/html/
+        path: /var/www/html
         state: present
