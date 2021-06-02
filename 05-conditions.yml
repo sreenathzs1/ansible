@@ -1,10 +1,12 @@
 - name: Demo on Conditions
   hosts: all
   tasks:
-    - name: Print company
+    - name: Print CentOS
       debug:
-        msg: Hello Zelarsoft
-    
-    - name: Print sreenath
+        msg: Hello Zelarsoft_Centos
+      when: OS == "CentOS"
+
+    - name: Print Ubuntu
       debug:
         msg: Hello Sree
+      when: OS == "Ubuntu"
