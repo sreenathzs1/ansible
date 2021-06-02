@@ -1,4 +1,39 @@
-- name: Install NGINX
+    - name: Install NGINX
+      apt:
+        name: nginx
+        update_cache: yes
+        state: present
+
+    - name: Download Artifacts from Nexus
+      get_url:
+        url: http://172.31.11.166:8081/repository/frontend/frontend-{{APP_VERSION}}.zip
+        dest: /var/www/html
+        username: admin 
+        password: admin123
+
+    - name: Create Frontend Directory
+      file:
+        path: /var/www/html/frontend
+        state: directory
+
+    - name: Unzip the Downloaded Content
+      unarchive:
+          src: /var/www/html/frontend-0.0.9.zip
+          dest: /var/www/html/frontend
+          remote_src: yes
+
+
+    - name: Replace content
+      replace:
+        path: /etc/nginx/sites-enabled/default
+        regexp: '/var/www/html/dist'
+        replace: '/var/www/html/frontend/dist'
+
+    - name: Start Nginx
+      systemd:
+        state: started
+        name: nginx
+        enabled: yes   - name: Install NGINX
       apt:
         name: nginx
         update_cache: yes
