@@ -7,14 +7,14 @@
 - name: Download Users from Nexus
   get_url:
     url: http://172.31.11.166:8081/repository/users/users-{{APP_VERSION}}.zip
-    dest: /root/users.zip
+    dest: /home/ubuntu/
     username: admin
     password: admin123
 
 - name: Unzip the Downloaded Content
   unarchive:
-      src: /root/users.zip
-      dest: /root/users
+      src: /home/ubuntu/users-0.0.7.zip
+      dest: /home/ubuntu
       remote_src: yes
 
 - name: Move systemd Service file
