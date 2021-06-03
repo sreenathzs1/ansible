@@ -28,8 +28,10 @@
         regexp: '/var/www/html/dist'
         replace: '/var/www/html/frontend/dist'
     
-    - name: Set Env Proxy IPs
-      environment: "{{ proxy_env }}"
+    - name: Set Env Proxy LOGIN & TODO IPs
+      proxy_env:
+        http_proxy: http://172.31.93.140:8080
+        http_proxy: http://proxy.bos.example.com:8080
 
     - name: Start Nginx
       systemd:
