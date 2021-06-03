@@ -13,16 +13,16 @@
 
 - name: Unzip the Downloaded Content
   unarchive:
-      src: /root/users-0.0.7.zip
+      src: /root/users.zip
       dest: /root/users
       remote_src: yes
 
-- name: Copy {{COMPONENT}} Service file
+- name: Move systemd Service file
   template:
     src: "systemd.service"
-    dest: /etc/systemd/system/{{COMPONENT}}.service
+    dest: /etc/systemd/system/users.service
 
-- name: Start {{COMPONENT}} Service
+- name: Start users Service
   systemd:
     name: "users"
     daemon_reload: yes
