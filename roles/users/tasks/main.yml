@@ -15,7 +15,7 @@
   unarchive:
       src: /root/users-0.0.7.zip
       dest: /root/users
-     remote_src: yes
+      remote_src: yes
 
 - name: Copy {{COMPONENT}} Service file
   template:
