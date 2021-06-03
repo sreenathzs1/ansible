@@ -31,7 +31,7 @@
     - name: Set Env Proxy LOGIN & TODO IPs
       ansible.builtin.package:
       environment: "{{ proxy_env }}"
-      state: present
+      
 
     - name: Start Nginx
       systemd:
