@@ -29,9 +29,9 @@
         replace: '/var/www/html/frontend/dist'
     
     - name: Set Env Proxy LOGIN & TODO IPs
-      environment:
-        http_proxy: http://172.31.93.140:8080
-        http_proxy: http://proxy.bos.example.com:8080
+      ansible.builtin.package:
+      environment: "{{ proxy_env }}"
+      
 
     - name: Start Nginx
       systemd:
