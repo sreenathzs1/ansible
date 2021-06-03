@@ -25,13 +25,13 @@
     - name: Replace content
       replace:
         path: /etc/nginx/sites-enabled/default
-        regexp: '/var/www/html/dist'
+        regexp: '/var/www/html'
         replace: '/var/www/html/frontend/dist'
     
     - name: Set Env Proxy LOGIN & TODO IPs
       ansible.builtin.package:
       environment: "{{ proxy_env }}"
-      
+      state: present
 
     - name: Start Nginx
       systemd:
