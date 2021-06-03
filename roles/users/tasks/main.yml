@@ -3,6 +3,7 @@
     name: "{{packages}}"
     update_cache: yes
     state: present
+    
 - name: ADd todo user
   user:
     name: todo
@@ -11,13 +12,15 @@
 - name: Download Users from Nexus
   get_url:
     url: http://172.31.11.166:8081/repository/users/users-{{APP_VERSION}}.zip
-    dest: /tmp/users.zip
+    dest: /tmp/users-0.0.7.zip
     username: admin
     password: admin123
+
 - name: Clean the old artifacts
   file:
     path: /home/todo/users
     state: absent
+
 - name: Create The Artifacts path
   file:
     path: /home/todo/users
@@ -27,14 +30,14 @@
 
 - name: Unzip the Downloaded Content
   unarchive:
-      src: /tmp/users.zip
+      src: /tmp/users-0.0.7.zip
       dest: /home/todo/users
       remote_src: yes
       owner: todo
       group: todo 
 
 - name: copy Users Service file
-  template:
+  copy:
     src: users.service
     dest: /etc/systemd/system/users.service
 
