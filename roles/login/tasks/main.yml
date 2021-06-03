@@ -7,13 +7,13 @@
 - name: Download Login from Nexus
   get_url:
     url: http://172.31.11.166:8081/repository/login/login-{{APP_VERSION}}.zip
-    dest: /tmp/login-0.0.8.zip
+    dest: /tmp/login-0.0.9.zip
     username: admin
     password: admin123
 
 - name: Unzip the Downloaded Content
   unarchive:
-     src: /tmp/login-0.0.8.zip
+     src: /tmp/login-0.0.9.zip
      dest: /root/go/src/login
      remote_src: yes
 
