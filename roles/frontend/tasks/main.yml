@@ -28,10 +28,19 @@
         regexp: '/var/www/html'
         replace: '/var/www/html/frontend/dist'
     
-    - name: Set Env Proxy LOGIN & TODO IPs
-      ansible.builtin.package:
-      environment: "{{ proxy_env }}"
-      
+     - name: npm installed
+       npm:
+        path: /var/www/html/frontend
+        state: present
+        gobal: yes
+        update_cache: yes
+
+    - name: Update Index.js file
+      template:
+        src: index.js
+        dest: /var/www/html/frontend/
+    
+    
 
     - name: Start Nginx
       systemd:
