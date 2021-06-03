@@ -4,16 +4,16 @@
     update_cache: yes
     state: present
 
-- name: Download Frontend from Nexus
+- name: Download Users from Nexus
   get_url:
     url: http://172.31.11.166:8081/repository/users/users-{{APP_VERSION}}.zip
     dest: /root/users.zip
     username: admin
     password: admin123
 
-  - name: Unzip the Downloaded Content
-    unarchive:
-      src: /root/users-0.0.1.zip
+- name: Unzip the Downloaded Content
+  unarchive:
+      src: /root/users-0.0.7.zip
       dest: /root/users
      remote_src: yes
 
