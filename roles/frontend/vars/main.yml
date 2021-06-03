@@ -2,7 +2,3 @@ packages:
    - nginx
    - nodejs
    - npm
-
-proxy_env:
-  http_proxy: http://172.31.93.140:8080
-  https_proxy: http://proxy.bos.example.com:8080
