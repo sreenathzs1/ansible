@@ -27,6 +27,9 @@
         path: /etc/nginx/sites-enabled/default
         regexp: '/var/www/html/dist'
         replace: '/var/www/html/frontend/dist'
+    
+    - name: Set Env Proxy IPs
+      environment: "{{ proxy_env }}"
 
     - name: Start Nginx
       systemd:
