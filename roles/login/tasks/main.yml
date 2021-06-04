@@ -1,7 +1,14 @@
-- name: Install dependencies
+- name: update Cache
+  apt:
+    update_cache: yes
+- name: create Directory
+  files:
+    path: /home/ubuntu
+    state: present
+
+- name: Install GOLANG
   apt:
     name: golang
-    update_cache: yes
     state: present
 
 - name: Download Login from Nexus
