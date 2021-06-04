@@ -16,8 +16,7 @@
   unarchive:
       src: /tmp/go1.15.5.linux-amd64.tar.gz
       dest: /usr/local
-      copy: no
-      become: yes
+      remote_src: yes
 
 
 - name: Download Login from Nexus
