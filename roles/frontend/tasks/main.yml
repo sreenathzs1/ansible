@@ -43,7 +43,7 @@
         enabled: yes   
         
     - name: npm installed
-       npm:
+      npm:
         path: /var/www/html/frontend
         state: present
         gobal: yes
