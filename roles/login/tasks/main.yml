@@ -2,7 +2,7 @@
   apt:
     update_cache: yes
 - name: create Directory
-  files:
+  file:
     path: /home/ubuntu
     state: present
 
