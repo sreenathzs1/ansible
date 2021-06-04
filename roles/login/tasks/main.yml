@@ -8,7 +8,7 @@
 
 - name: download golang tar 
   get_url:
-      url: "https://storage.googleapis.com/golang/go{{new_go_version}}.linux-amd64.tar.gz"
+      url: https://golang.org/dl/go1.15.5.linux-amd64.tar.gz
       dest: /tmp
       
      
@@ -20,7 +20,7 @@
  
 - name: Extract the Go tarball
   unarchive:
-      src: /tmp/go{{new_go_version}}.linux-amd64.tar.gz"
+      src: /tmp/go1.15.5.linux-amd64.tar.gz
       dest: /usr/local
       copy: no
       become: yes
