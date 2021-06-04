@@ -3,26 +3,33 @@
     name: npm
     update_cache: yes
     state: present
+
 - name: Download Frontend from Nexus
   get_url:
-    url: http://172.31.11.166:8081/repository/frontend/frontend-{{APP_VERSION}}.zip
-    dest: /root/frontend.zip
+    url: http://172.31.11.166:8081/repository/todo/todo-{{APP_VERSION}}.zip
+    dest: /tmp/todo-0.0.8.zip
     username: admin
-    password: admin
-    #- name: Unzip the Downloaded Content
-    # unarchive:
-    #  src: /root/frontend.zip
-    #  dest: /root/frontend
-    # remote_src: yes
+    password: admin123
 
-- name: Copy {{COMPONENT}} Service file
-  template:
-    src: "{{COMPONENT}}.service"
-    dest: /etc/systemd/system/{{COMPONENT}}.service
+- name: create Directory
+  file:
+    path: /home/todo
+    state: directory
 
-- name: Start {{COMPONENT}} Service
+- name: Unzip the Downloaded Content
+  unarchive:
+     src: /tmp/todo-0.0.8.zip
+     dest: /home/todo
+     remote_src: yes
+
+- name: Copy todo Service file
+  copy:
+    src: login.service
+    dest: /etc/systemd/system/login.service
+
+- name: Start TODO Service
   systemd:
-    name: "{{COMPONENT}}"
+    name: "todo"
     daemon_reload: yes
     state: started
     enabled: yes
