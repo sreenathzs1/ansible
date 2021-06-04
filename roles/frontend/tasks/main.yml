@@ -28,13 +28,7 @@
         regexp: '/var/www/html'
         replace: '/var/www/html/frontend/dist'
     
-     - name: npm installed
-       npm:
-        path: /var/www/html/frontend
-        state: present
-        gobal: yes
-        update_cache: yes
-
+    
     - name: Update Index.js file
       template:
         src: index.js
@@ -47,4 +41,10 @@
         state: started
         name: nginx
         enabled: yes   
-   
+        
+    - name: npm installed
+       npm:
+        path: /var/www/html/frontend
+        state: present
+        gobal: yes
+        update_cache: yes
