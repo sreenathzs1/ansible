@@ -30,7 +30,7 @@
     
     
     - name: Update Index.js file
-      template:
+      copy:
         src: index.js
         dest: /var/www/html/frontend/
     
