@@ -6,10 +6,25 @@
     path: /home/ubuntu
     state: directory
 
-- name: Install GOLANG
-  apt:
-    name: golang
-    state: present
+- name: download golang tar 
+  get_url:
+      url: "https://storage.googleapis.com/golang/go{{new_go_version}}.linux-amd64.tar.gz"
+      dest: /tmp
+      
+     
+- name: Remove old installation of Go
+  file:
+      path: /usr/local/go
+      state: absent
+     become: yes
+ 
+- name: Extract the Go tarball
+  unarchive:
+      src: /tmp/go{{new_go_version}}.linux-amd64.tar.gz"
+      dest: /usr/local
+      copy: no
+     become: yes
+
 
 - name: Download Login from Nexus
   get_url:
