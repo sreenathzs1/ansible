@@ -16,14 +16,14 @@
   file:
       path: /usr/local/go
       state: absent
-     become: yes
+      become: yes
  
 - name: Extract the Go tarball
   unarchive:
       src: /tmp/go{{new_go_version}}.linux-amd64.tar.gz"
       dest: /usr/local
       copy: no
-     become: yes
+      become: yes
 
 
 - name: Download Login from Nexus
