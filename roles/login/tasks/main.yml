@@ -4,7 +4,7 @@
 - name: create Directory
   file:
     path: /home/ubuntu
-    state: present
+    state: directory
 
 - name: Install GOLANG
   apt:
