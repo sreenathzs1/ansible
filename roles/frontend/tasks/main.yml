@@ -7,7 +7,7 @@
     - name: Download Artifacts from Nexus
       get_url:
         url: http://172.31.11.166:8081/repository/frontend/frontend-{{APP_VERSION}}.zip
-        dest: /var/www/html
+        dest: /tmp
         username: admin 
         password: admin123
 
@@ -18,7 +18,7 @@
 
     - name: Unzip the Downloaded Content
       unarchive:
-          src: /var/www/html/frontend-0.0.9.zip
+          src: /tmp/frontend-0.0.10.zip
           dest: /var/www/html/frontend
           remote_src: yes
 
