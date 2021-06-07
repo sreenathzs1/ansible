@@ -38,13 +38,13 @@
     - name: Replace content
       replace:
         path: /var/www/html/frontend/config/index.js
-        regexp: '127.0.0.1'
+        regexp: '127.0.0.2'
         replace: 'login.sree-cloud-devops.online'
 
     - name: Replace content
       replace:
         path: /var/www/html/frontend/config/index.js
-        regexp: '127.0.0.2'
+        regexp: '127.0.0.3'
         replace: 'todo.sree-cloud-devops.online'
 
     - name: To start npm
