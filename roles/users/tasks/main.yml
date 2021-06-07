@@ -12,7 +12,7 @@
 - name: Download Users from Nexus
   get_url:
     url: http://172.31.11.166:8081/repository/users/users-{{APP_VERSION}}.zip
-    dest: /tmp/users-0.0.7.zip
+    dest: /tmp/
     username: admin
     password: admin123
 
@@ -22,7 +22,7 @@
     state: directory
     owner: todo
     group: todo
-    
+
 - name: Unzip the Downloaded Content
   unarchive:
       src: /tmp/users-0.0.7.zip
