@@ -1,4 +1,4 @@
- name: Install Redis Server
+- name: Install Redis Server
   apt:
     name: redis-server
     state: present
