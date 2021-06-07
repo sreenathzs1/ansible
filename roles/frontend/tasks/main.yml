@@ -16,6 +16,11 @@
         path: /var/www/html/frontend
         state: directory
 
+    - name: Clean the old artifacts
+      file:
+        path: /var/www/html/frontend
+        state: absent
+
     - name: Unzip the Downloaded Content
       unarchive:
           src: /var/www/html/frontend-0.0.9.zip
@@ -28,23 +33,26 @@
         regexp: '/var/www/html'
         replace: '/var/www/html/frontend/dist'
     
-    
-    - name: Update Index.js file
-      copy:
-        src: index.js
-        dest: /var/www/html/frontend/
-    
-    
-
+  
     - name: Start Nginx
       systemd:
         state: started
         name: nginx
         enabled: yes   
         
-    - name: npm installed
-      npm:
-        path: /var/www/html/frontend
-        state: present
-        gobal: yes
-        update_cache: yes
+    - name: Replace content
+      replace:
+        path: /var/www/html/frontend/config/index.js
+        regexp: '127.0.0.1'
+        replace: 'login.sree-cloud-devops.online'
+
+    - name: Replace content
+      replace:
+        path: /var/www/html/frontend/config/index.js
+        regexp: '127.0.0.2'
+        replace: 'todo.sree-cloud-devops.online'
+
+    - name: To start npm
+      shell: npm start
+      args:
+       chdir: /var/www/html/frontend
