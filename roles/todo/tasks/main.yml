@@ -24,8 +24,8 @@
 
 - name: Copy todo Service file
   copy:
-    src: login.service
-    dest: /etc/systemd/system/login.service
+    src: todo.service
+    dest: /etc/systemd/system/todo.service
 
 - name: Start TODO Service
   systemd:
