@@ -22,11 +22,6 @@
     state: directory
     owner: todo
     group: todo
-
-- name: Clean the old artifacts
-  file:
-    path: /home/todo/users
-    state: absent
     
 - name: Unzip the Downloaded Content
   unarchive:
