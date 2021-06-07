@@ -16,11 +16,6 @@
     username: admin
     password: admin123
 
-- name: Clean the old artifacts
-  file:
-    path: /home/todo/users
-    state: absent
-
 - name: Create The Artifacts path
   file:
     path: /home/todo/users
@@ -28,6 +23,11 @@
     owner: todo
     group: todo
 
+- name: Clean the old artifacts
+  file:
+    path: /home/todo/users
+    state: absent
+    
 - name: Unzip the Downloaded Content
   unarchive:
       src: /tmp/users-0.0.7.zip
