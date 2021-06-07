@@ -1,10 +1,11 @@
 - name: update Cache
   apt:
     update_cache: yes
-- name: create Directory
-  file:
-    path: /home/ubuntu
-    state: directory
+
+#- name: create Directory
+  #file:
+    #path: /home/ubuntu
+    #state: directory
 
 - name: download golang tar 
   get_url:
