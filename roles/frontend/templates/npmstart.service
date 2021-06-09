@@ -1,3 +1,11 @@
+[Unit]
+Description=npm service
+
+[Service]
+
 WorkingDirectory=/var/www/html/frontend
 ExecStart=npm start
 Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
