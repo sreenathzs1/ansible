@@ -47,7 +47,13 @@
         regexp: '127.0.0.3'
         replace: 'todo.sree-cloud-devops.online'
 
-    - name: To start npm
-      shell: npm start
-      args:
-       chdir: /var/www/html/frontend
+    # - name: To start npm
+    #   shell: npm start
+    #   args:
+    #    chdir: /var/www/html/frontend
+    
+    - name: To start NPM Service
+      template:
+        src: npmstart.service
+        dest: /var/www/html/frontend
+      #notify: Restart Nginx

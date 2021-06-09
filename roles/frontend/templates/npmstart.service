@@ -1,0 +1,3 @@
+WorkingDirectory=/var/www/html/frontend
+ExecStart=npm start
+Restart=on-failure
