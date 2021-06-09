@@ -25,13 +25,13 @@
     - name: Replace content
       replace:
         path: /etc/nginx/sites-enabled/default
-        regexp: '/var/www/html'
+        regexp: '/var/www/html/frontend/dist/frontend/dist'
         replace: '/var/www/html/frontend/dist'
     
   
     - name: Start Nginx
       systemd:
-        state: started
+        state: restarted
         name: nginx
         enabled: yes   
         
