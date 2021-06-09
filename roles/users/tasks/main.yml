@@ -31,7 +31,7 @@
 
 - name: Unzip the Downloaded Content
   unarchive:
-      src: /tmp/users-0.0.8.zip
+      src: /tmp/users-0.0.10.zip
       dest: /home/todo/users
       remote_src: yes
       owner: todo
