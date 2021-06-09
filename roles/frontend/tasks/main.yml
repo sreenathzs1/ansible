@@ -18,7 +18,7 @@
 
     - name: Unzip the Downloaded Content
       unarchive:
-          src: /tmp/frontend-0.0.10.zip
+          src: /tmp/frontend-0.0.11.zip
           dest: /var/www/html/frontend
           remote_src: yes
 
