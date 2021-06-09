@@ -1,6 +1,12 @@
-- name: Install dependencies
+- name: Install JAVA-8
   apt:
-    name: "{{packages}}"
+    name: openjdk-8-jdk-headless
+    update_cache: yes
+    state: present
+
+- name: Install MAVEN
+  apt:
+    name: maven
     update_cache: yes
     state: present
     
