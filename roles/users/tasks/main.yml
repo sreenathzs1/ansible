@@ -39,7 +39,7 @@
 
 - name: copy Template {{COMPONENT}} Service file
   template:
-    src: {{COMPONENT}}.service
+    src: "{{COMPONENT}}.service"
     dest: /etc/systemd/system/{{COMPONENT}}.service
 
 - name: Start {{COMPONENT}} Service
