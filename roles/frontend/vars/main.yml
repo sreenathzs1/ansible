@@ -2,6 +2,7 @@ packages:
    - nginx
    - nodejs
    - npm
+   - node-node-sass
 
 #proxy_env:
      # http_proxy: http://172.31.93.140:8080
