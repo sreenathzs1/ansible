@@ -10,7 +10,7 @@
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
 
-- name: Start Redis
+- name: Start Redis Service
   systemd:
     name: redis
     state: restarted
