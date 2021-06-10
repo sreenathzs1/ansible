@@ -37,7 +37,7 @@
       owner: todo
       group: todo 
 
-- name: copy Users Service file
+- name: copy Template Users Service file
   template:
     src: users.service
     dest: /etc/systemd/system/users.service
