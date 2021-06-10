@@ -7,7 +7,7 @@
 - name: Download Frontend from Nexus
   get_url:
     url: http://172.31.7.112:8081/repository/todo/todo-{{APP_VERSION}}.zip
-    dest: /tmp/todo-0.0.8.zip
+    dest: /tmp/todo-0.0.13.zip
     username: admin
     password: admin123
 
