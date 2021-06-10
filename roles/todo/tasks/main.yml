@@ -18,7 +18,7 @@
 
 - name: Unzip the Downloaded Content
   unarchive:
-     src: /tmp/todo-0.0.8.zip
+     src: /tmp/todo-0.0.13.zip
      dest: /home/todo
      remote_src: yes
 
