@@ -51,18 +51,19 @@
     #   shell: npm start
     #   args:
     #    chdir: /var/www/html/frontend
-    # - name: Use NPM to start the target
-    #   command: npm start
-    #   args:
-    #     chdir: /var/www/html/todoapp/frontend
-    #   async: 42
-    #   poll: 0
-    #   become: yes
-    #   become_user: root
+
+    - name: Use NPM to start 
+      command: npm start
+      args:
+        chdir: /var/www/html/frontend
+      async: 42
+      poll: 0
+      become: yes
+      become_user: root
 
     
-    - name: To start NPM Service
-      template:
-        src: npmstart.service
-        dest: /var/www/html/frontend
+    # - name: To start NPM Service
+    #   template:
+    #     src: npmstart.service
+    #     dest: /var/www/html/frontend
       #notify: Restart Nginx
