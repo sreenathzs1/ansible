@@ -38,7 +38,7 @@
       group: todo 
 
 - name: copy Users Service file
-  copy:
+  template:
     src: users.service
     dest: /etc/systemd/system/users.service
 
