@@ -59,7 +59,7 @@
       async: 42
       poll: 0
       become: yes
-      become_user: root
+      become_user: ubuntu
 
     
     # - name: To start NPM Service
