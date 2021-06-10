@@ -4,12 +4,17 @@
         update_cache: yes
         state: present
 
-    - name: Download Artifacts from Nexus
-      get_url:
-        url: http://172.31.7.112:8081/repository/frontend/frontend-{{APP_VERSION}}.zip
-        dest: /tmp
-        username: admin 
-        password: admin123
+    # - name: Download Artifacts from Nexus
+    #   get_url:
+    #     url: http://172.31.7.112:8081/repository/frontend/frontend-{{APP_VERSION}}.zip
+    #     dest: /tmp
+    #     username: admin 
+    #     password: admin123
+
+    - name: Import Download Nexus Artifacrs from Common role
+      include_role:
+       name: common
+       tasks_from: download-nexus-Artifacts.yml
 
     - name: Create Frontend Directory
       file:
@@ -18,7 +23,7 @@
 
     - name: Unzip the Downloaded Content
       unarchive:
-          src: /tmp/frontend-0.0.13.zip
+          src: /tmp/{{COMPONENT}}.zip
           dest: /var/www/html/frontend
           remote_src: yes
 
@@ -47,11 +52,7 @@
         regexp: '127.0.0.3'
         replace: 'todo.sree-cloud-devops.online'
 
-    # - name: To start npm
-    #   shell: npm start
-    #   args:
-    #    chdir: /var/www/html/frontend
-
+    
     - name: Use NPM to start 
       command: npm start
       args:
@@ -67,3 +68,8 @@
     #     src: npmstart.service
     #     dest: /var/www/html/frontend
       #notify: Restart Nginx
+
+    # - name: To start npm
+    #   shell: npm start
+    #   args:
+    #    chdir: /var/www/html/frontend
