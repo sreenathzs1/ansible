@@ -22,5 +22,10 @@
      dest: /home/todo
      remote_src: yes
 
-- name: Setup SystemD Service
-  include_tasks: setup-systemd.yml
+# - name: Setup SystemD Service
+#   include_tasks: setup-systemd.yml
+
+- name: Import Systemd Serive from Common role
+  include_role:
+    name: common
+    tasks_from: setup-systemd.yml
