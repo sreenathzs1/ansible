@@ -4,7 +4,7 @@
     update_cache: yes
     state: present
 
-- name: Download Frontend from Nexus
+- name: Download todo from Nexus
   get_url:
     url: http://172.31.7.112:8081/repository/todo/todo-{{APP_VERSION}}.zip
     dest: /tmp/todo-0.0.13.zip
@@ -22,14 +22,5 @@
      dest: /home/todo
      remote_src: yes
 
-- name: Copy Template {{COMPONENT}} Service file
-  template:
-    src: "{{COMPONENT}}.service"
-    dest: /etc/systemd/system/{{COMPONENT}}.service
-
-- name: Start {{COMPONENT}} Service
-  systemd:
-    name: "{{COMPONENT}}"
-    daemon_reload: yes
-    state: started
-    enabled: yes
+- name: Setup SystemD Service
+  include_tasks: setup-systemd.yml
