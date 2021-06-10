@@ -22,8 +22,8 @@
      dest: /home/todo
      remote_src: yes
 
-- name: Copy todo Service file
-  copy:
+- name: Copy Template todo Service file
+  template:
     src: todo.service
     dest: /etc/systemd/system/todo.service
 
