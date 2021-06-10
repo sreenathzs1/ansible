@@ -22,14 +22,14 @@
      dest: /home/todo
      remote_src: yes
 
-- name: Copy Template todo Service file
+- name: Copy Template {{COMPONENT}} Service file
   template:
-    src: todo.service
-    dest: /etc/systemd/system/todo.service
+    src: "{{COMPONENT}}.service"
+    dest: /etc/systemd/system/{{COMPONENT}}.service
 
-- name: Start TODO Service
+- name: Start {{COMPONENT}} Service
   systemd:
-    name: "todo"
+    name: "{{COMPONENT}}""
     daemon_reload: yes
     state: started
     enabled: yes
