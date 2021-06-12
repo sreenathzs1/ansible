@@ -10,10 +10,10 @@
     update_cache: yes
     state: present
     
-- name: ADd todo user
-  user:
-    name: todo
-    shell: /bin/bash
+# - name: ADd todo user
+#   user:
+#     name: todo
+#     shell: /bin/bash
 
 # - name: Download Users from Nexus
 #   get_url:
@@ -28,20 +28,7 @@
     tasks_from: download-nexus-Artifacts.yml
 
 
-- name: Create The Artifacts path
-  file:
-    path: /home/todo/users
-    state: directory
-    owner: todo
-    group: todo
-
-- name: Unzip the Downloaded Content
-  unarchive:
-      src: /tmp/{{COMPONENT}}.zip
-      dest: /home/todo/users
-      remote_src: yes
-      owner: todo
-      group: todo 
+ 
 
 - name: Import Systemd Serive from Common role
   include_role:
@@ -50,3 +37,19 @@
 
 # - name: Setup SystemD Service
 #   include_tasks: setup-systemd.yml
+
+
+# - name: Create The Artifacts path
+#   file:
+#     path: /home/todo/users
+#     state: directory
+#     owner: todo
+#     group: todo
+
+# - name: Unzip the Downloaded Content
+#   unarchive:
+#       src: /tmp/{{COMPONENT}}.zip
+#       dest: /home/todo/users
+#       remote_src: yes
+#       owner: todo
+#       group: todo

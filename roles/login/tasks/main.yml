@@ -33,11 +33,7 @@
     tasks_from: download-nexus-Artifacts.yml
 
 
-- name: Unzip the Downloaded Content
-  unarchive:
-     src: /tmp/{{COMPONENT}}.zip
-     dest: /home/ubuntu
-     remote_src: yes
+
 
 - name: Import Systemd Serive from Common role
   include_role:
@@ -46,4 +42,10 @@
 
 # - name: Setup SystemD Service
 #   include_tasks: setup-systemd.yml
+
+#- name: Unzip the Downloaded Content
+#   unarchive:
+#      src: /tmp/{{COMPONENT}}.zip
+#      dest: /home/ubuntu
+#      remote_src: yes
 

@@ -16,16 +16,16 @@
    name: common
    tasks_from: download-nexus-Artifacts.yml
 
-- name: create Directory
-  file:
-    path: /home/todo
-    state: directory
+# - name: create Directory
+#   file:
+#     path: /home/todo
+#     state: directory
 
-- name: Unzip the Downloaded Content
-  unarchive:
-     src: /tmp/{{COMPONENT}}.zip
-     dest: /home/todo
-     remote_src: yes
+# - name: Unzip the Downloaded Content
+#   unarchive:
+#      src: /tmp/{{COMPONENT}}.zip
+#      dest: /home/todo
+#      remote_src: yes
 
 
 
