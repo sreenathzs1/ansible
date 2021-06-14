@@ -2,22 +2,29 @@
   apt:
     update_cache: yes
 
+- name: Install dependencies
+  apt:
+    name: golang-go
+    update_cache: yes
+    state: present
+
+
 #- name: create Directory
   #file:
     #path: /home/ubuntu
     #state: directory
 
-- name: download golang tar 
-  get_url:
-      url: https://golang.org/dl/go1.15.5.linux-amd64.tar.gz
-      dest: /tmp
+# - name: download golang tar 
+#   get_url:
+#       url: https://golang.org/dl/go1.15.5.linux-amd64.tar.gz
+#       dest: /tmp
       
  
-- name: Extract the Go tarball
-  unarchive:
-      src: /tmp/go1.15.5.linux-amd64.tar.gz
-      dest: /usr/local
-      remote_src: yes
+# - name: Extract the Go tarball
+#   unarchive:
+#       src: /tmp/go1.15.5.linux-amd64.tar.gz
+#       dest: /usr/local
+#       remote_src: yes
 
 
 # - name: Download Login from Nexus
