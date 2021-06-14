@@ -1,0 +1,29 @@
+
+- name: update Cache
+  apt:
+    update_cache: yes
+    
+- name: download golang tar 
+  get_url:
+      url: https://golang.org/dl/go1.15.5.linux-amd64.tar.gz
+      dest: /tmp
+      
+ 
+- name: Extract the Go tarball
+  unarchive:
+      src: /tmp/go1.15.5.linux-amd64.tar.gz
+      dest: /usr/local
+      remote_src: yes
+
+- name: Import Download Nexus Artifacrs from Common role
+  include_role:
+    name: common
+    tasks_from: download-nexus-Artifacts.yml
+
+
+
+
+- name: Import Systemd Serive from Common role
+  include_role:
+    name: common
+    tasks_from: setup-systemd.yml

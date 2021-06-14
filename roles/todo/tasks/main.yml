@@ -1,8 +1,15 @@
-- name: Install dependencies
-  apt:
-    name: npm
-    update_cache: yes
-    state: present
+- name: Import npm From Common role
+  include_role:
+    name: common
+    tasks_from: npm
+
+
+
+# - name: Install dependencies
+#   apt:
+#     name: npm
+#     update_cache: yes
+#     state: present
 
 # - name: Download todo from Nexus
 #   get_url:
@@ -11,10 +18,10 @@
 #     username: admin
 #     password: admin123
 
-- name: Import Download Nexus Artifacrs from Common role
-  include_role:
-   name: common
-   tasks_from: download-nexus-Artifacts.yml
+# - name: Import Download Nexus Artifacrs from Common role
+#   include_role:
+#    name: common
+#    tasks_from: download-nexus-Artifacts.yml
 
 # - name: create Directory
 #   file:
@@ -29,10 +36,10 @@
 
 
 
-- name: Import Systemd Serive from Common role
-  include_role:
-    name: common
-    tasks_from: setup-systemd.yml
+# - name: Import Systemd Serive from Common role
+#   include_role:
+#     name: common
+#     tasks_from: setup-systemd.yml
 
 # - name: Setup SystemD Service
 #   include_tasks: setup-systemd.yml

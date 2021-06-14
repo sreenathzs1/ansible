@@ -1,0 +1,15 @@
+- name: Install dependencies
+  apt:
+    name: npm
+    update_cache: yes
+    state: present
+
+- name: Import Download Nexus Artifacrs from Common role
+  include_role:
+   name: common
+   tasks_from: download-nexus-Artifacts.yml
+   
+- name: Import Systemd Serive from Common role
+  include_role:
+    name: common
+    tasks_from: setup-systemd.yml

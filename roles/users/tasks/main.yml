@@ -1,14 +1,20 @@
-- name: Install JAVA-8
-  apt:
-    name: openjdk-8-jdk-headless
-    update_cache: yes
-    state: present
+- name: Import Java & Maven From Common role
+  include_role:
+    name: common
+    tasks_from: java
 
-- name: Install MAVEN
-  apt:
-    name: maven
-    update_cache: yes
-    state: present
+
+# - name: Install JAVA-8
+#   apt:
+#     name: openjdk-8-jdk-headless
+#     update_cache: yes
+#     state: present
+
+# - name: Install MAVEN
+#   apt:
+#     name: maven
+#     update_cache: yes
+#     state: present
     
 # - name: ADd todo user
 #   user:
@@ -22,18 +28,18 @@
 #     username: admin
 #     password: admin123
 
-- name: Import Download Nexus Artifacrs from Common role
-  include_role:
-    name: common
-    tasks_from: download-nexus-Artifacts.yml
+# - name: Import Download Nexus Artifacrs from Common role
+#   include_role:
+#     name: common
+#     tasks_from: download-nexus-Artifacts.yml
 
 
  
 
-- name: Import Systemd Serive from Common role
-  include_role:
-    name: common
-    tasks_from: setup-systemd.yml
+# - name: Import Systemd Serive from Common role
+#   include_role:
+#     name: common
+#     tasks_from: setup-systemd.yml
 
 # - name: Setup SystemD Service
 #   include_tasks: setup-systemd.yml
