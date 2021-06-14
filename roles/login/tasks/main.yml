@@ -1,6 +1,6 @@
-- name: update Cache
-  apt:
-    update_cache: yes
+# - name: update Cache
+#   apt:
+#     update_cache: yes
 
 - name: Install dependencies
   apt:
