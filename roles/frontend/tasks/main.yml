@@ -38,18 +38,18 @@
         path: /root/config/index.js
         regexp: '127.0.0.2'
         replace: 'login.sree-cloud-devops.online'
-      notify: Restart Nginx
+      #notify: Restart Nginx
 
     - name: Replace content
       replace:
         path: /root/config/index.js
         regexp: '127.0.0.3'
         replace: 'todo.sree-cloud-devops.online'
-      notify: Restart Nginx
+      #notify: Restart Nginx
 
     - name: Start Nginx
       systemd:
-        state: started
+        state: restarted
         name: nginx
         enabled: yes 
     
