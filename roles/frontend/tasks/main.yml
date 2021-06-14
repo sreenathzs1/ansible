@@ -31,7 +31,7 @@
       replace:
         path: /etc/nginx/sites-enabled/default
         regexp: root /var/www/html;
-        replace: root /dist;
+        replace: root /root/dist;
     
   
     - name: Start Nginx
