@@ -2,7 +2,7 @@
 Description=users service
 
 [Service]
-User=todo
+User=root
 Environment=SERVER_PORT=8080
 ExecStart=/bin/java -jar /root/users.jar
 SyslogIdentifier=users
