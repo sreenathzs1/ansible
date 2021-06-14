@@ -16,22 +16,22 @@
        name: common
        tasks_from: download-nexus-Artifacts.yml
 
-    - name: Create Frontend Directory
-      file:
-        path: /var/www/html/frontend
-        state: directory
+    # - name: Create Frontend Directory
+    #   file:
+    #     path: /var/www/html/frontend
+    #     state: directory
 
-    - name: Unzip the Downloaded Content
-      unarchive:
-          src: /tmp/{{COMPONENT}}.zip
-          dest: /var/www/html/frontend
-          remote_src: yes
+    # - name: Unzip the Downloaded Content
+    #   unarchive:
+    #       src: /tmp/{{COMPONENT}}.zip
+    #       dest: /var/www/html/frontend
+    #       remote_src: yes
 
     - name: Replace content
       replace:
         path: /etc/nginx/sites-enabled/default
         regexp: root /var/www/html;
-        replace: root /var/www/html/frontend/dist;
+        replace: root /root/dist;
     
   
     - name: Start Nginx
@@ -42,13 +42,13 @@
         
     - name: Replace content
       replace:
-        path: /var/www/html/frontend/config/index.js
+        path: /root/config/index.js
         regexp: '127.0.0.2'
         replace: 'login.sree-cloud-devops.online'
 
     - name: Replace content
       replace:
-        path: /var/www/html/frontend/config/index.js
+        path: /root/config/index.js
         regexp: '127.0.0.3'
         replace: 'todo.sree-cloud-devops.online'
 
@@ -56,7 +56,7 @@
     - name: Use NPM to start 
       command: npm start
       args:
-        chdir: /var/www/html/frontend
+        chdir: /root
       async: 42
       poll: 0
       become: yes
