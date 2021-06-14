@@ -1,12 +1,13 @@
+- name: Install dependencies
+  apt:
+   name: golang
+   update_cache: yes
+   state: present
+
 # - name: update Cache
 #   apt:
 #     update_cache: yes
 
-- name: Install dependencies
-  apt:
-    name: golang
-    update_cache: yes
-    state: present
 
 
 #- name: create Directory
