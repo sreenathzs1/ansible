@@ -32,31 +32,20 @@
         path: /etc/nginx/sites-enabled/default
         regexp: root /var/www/html;
         replace: root /root/dist;
+        
+    - name: Start Nginx
+      systemd:
+        state: restarted
+        name: nginx
+        enabled: yes 
     
-    # - name: Replace content
-    #   replace:
-    #     path: /root/config/index.js
-    #     regexp: '127.0.0.2'
-    #     replace: 'login-{{ENV}}.sree-cloud-devops.online'
-    #   #notify: Restart Nginx
-
-    # - name: Replace content
-    #   replace:
-    #     path: /root/config/index.js
-    #     regexp: '127.0.0.3'
-    #     replace: 'todo-{{ENV}}.sree-cloud-devops.online'
-    #   #notify: Restart Nginx
 
     - name: Update Index.js file Config
       template:
         src: index.js
         dest: /root/config/index.js
 
-    - name: Start Nginx
-      systemd:
-        state: restarted
-        name: nginx
-        enabled: yes 
+    
     
     - name: Use NPM to start 
       command: npm start
