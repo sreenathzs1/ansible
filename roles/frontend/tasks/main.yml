@@ -32,7 +32,7 @@
         path: /etc/nginx/sites-enabled/default
         regexp: root /var/www/html;
         replace: root /root/dist;
-        
+
     - name: Start Nginx
       systemd:
         state: restarted
@@ -67,3 +67,4 @@
     #   shell: npm start
     #   args:
     #    chdir: /var/www/html/frontend
+    # add
