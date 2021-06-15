@@ -25,7 +25,7 @@ Instance_Create() {
 
   sed -e "s/COMPONENT/${COMPONENT}/" -e "s/IPADDRESS/${IPADDRESS}/" record.json >/tmp/record.json
   aws route53 change-resource-record-sets --hosted-zone-id Z09973211FB946CEND2TK --change-batch file:///tmp/record.json
-  sed -i -e "/${COMPONENT}/ d" ../ips
+  sed -i -e "/${COMPONENT}/ d" ../inv
   echo "${IPADDRESS} COMPONENT=$(echo ${COMPONENT} | awk -F - '{print $1}')" >>../ips
 }
 
