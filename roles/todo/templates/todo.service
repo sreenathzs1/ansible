@@ -3,7 +3,7 @@ Description=todo service
 [Service]
 User=root
 Type=simple
-Environment=REDIS_API_ADDRESS=redis.sree-cloud-devops.online:8080
+Environment=REDIS_API_ADDRESS=redis-{{ENV}}.sree-cloud-devops.online:8080
 ExecStart=/bin/node /root/server.js
 SyslogIdentifier=todo
 Restart=on-failure
