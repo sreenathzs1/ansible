@@ -29,11 +29,11 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/login': {
-        target: process.env.AUTH_API_ADDRESS || 'http://login-{{ENV}}.sree-cloud-devops.online:8080',
+        target: process.env.AUTH_API_ADDRESS || 'http://login-dev.sree-cloud-devops.online:8080',
         secure: false
       },
       '/todos': {
-        target: process.env.TODOS_API_ADDRESS || 'http://todo-{{ENV}}.sree-cloud-devops.online:8080',
+        target: process.env.TODOS_API_ADDRESS || 'http://todo-dev.sree-cloud-devops.online:8080',
         secure: false
       },
       '/zipkin': {
