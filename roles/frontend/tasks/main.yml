@@ -50,7 +50,7 @@
     - name: Use NPM to start 
       command: npm start
       args:
-        chdir: /root
+        chdir: /var/www/html/frontend
       async: 42
       poll: 0
       become: yes
