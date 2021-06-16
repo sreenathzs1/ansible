@@ -33,11 +33,6 @@
         regexp: root /var/www/html;
         replace: root /root/dist;
 
-    - name: Start Nginx
-      systemd:
-        state: restarted
-        name: nginx
-        enabled: yes 
     
 
     - name: Update Index.js file Config
@@ -45,6 +40,11 @@
         src: index.js
         dest: /root/config/index.js
 
+    - name: Start Nginx
+      systemd:
+        state: restarted
+        name: nginx
+        enabled: yes 
     
     
     - name: Use NPM to start 
