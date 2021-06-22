@@ -11,8 +11,8 @@
 #        username: admin
 #        password: admin123
 #
-     - name: Import Download Nexus Artifacrs from Common role
-       include_role:
+    - name: Import Download Nexus Artifacrs from Common role
+      include_role:
         name: common
         tasks_from: download-nexus-Artifacts.yml
 
