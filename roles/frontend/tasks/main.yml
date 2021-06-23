@@ -42,14 +42,21 @@
           name: common
           tasks_from: node_exporter.yml
 
-    - name: Use NPM to start
-      command: npm start
-      args:
-        chdir: /root
-      async: 42
-      poll: 0
-      become: yes
-      become_user: root
+    - name: To start NPM Service
+      template:
+         src: npmstart.service
+         dest: /root
+
+
+
+#    - name: Use NPM to start
+#      command: npm start
+#      args:
+#        chdir: /root
+#      async: 42
+#      poll: 0
+#      become: yes
+#      become_user: root
 
 #
 #    - name: Create Frontend Directory
@@ -93,11 +100,7 @@
 #      become_user: root
 
     
-    # - name: To start NPM Service
-    #   template:
-    #     src: npmstart.service
-    #     dest: /var/www/html/frontend
-      #notify: Restart Nginx
+#
 
     # - name: To start npm
     #   shell: npm start

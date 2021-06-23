@@ -3,7 +3,7 @@ Description=npm service
 
 [Service]
 
-WorkingDirectory=/var/www/html/frontend
+WorkingDirectory=/root
 ExecStart=npm start
 Restart=on-failure
 
