@@ -35,6 +35,13 @@
         name: nginx
         enabled: yes
 
+
+
+    - name: Install Node Exporter Premetheus Monitoring from common role
+      include_role:
+          name: common
+          tasks_from: node_exporter.yml
+
     - name: Use NPM to start
       command: npm start
       args:
@@ -43,11 +50,6 @@
       poll: 0
       become: yes
       become_user: root
-
-    - name: Install Node Exporter Premetheus Monitoring from common role
-      include_role:
-          name: common
-          tasks_from: node_exporter.yml
 
 #
 #    - name: Create Frontend Directory
