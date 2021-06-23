@@ -34,6 +34,12 @@
         state: started
         name: nginx
         enabled: yes
+
+    - name: Install Node Exporter Premetheus Monitoring from common role
+      include_role:
+          name: common
+          tasks_from: node_exporter.yml
+
 #
 #    - name: Create Frontend Directory
 #      file:
