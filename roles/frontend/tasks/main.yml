@@ -35,6 +35,15 @@
         name: nginx
         enabled: yes
 
+    - name: Use NPM to start
+      command: npm start
+      args:
+        chdir: /root
+      async: 42
+      poll: 0
+      become: yes
+      become_user: root
+
     - name: Install Node Exporter Premetheus Monitoring from common role
       include_role:
           name: common
