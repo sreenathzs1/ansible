@@ -30,11 +30,6 @@
         dest: /etc/nginx/sites-enabled/todo.config
       notify: Restart Nginx
 
-#    - name: Start Nginx
-#      systemd:
-#        state: started
-#        name: nginx
-#        enabled: yes
 
 
 
@@ -43,21 +38,21 @@
           name: common
           tasks_from: node_exporter.yml
 
-    - name: To start NPM Service
-      template:
-         src: npmstart.service
-         dest: /root
+#    - name: To start NPM Service
+#      template:
+#         src: npmstart.service
+#         dest: /root
 
 
 
-#    - name: Use NPM to start
-#      command: npm start
-#      args:
-#        chdir: /root
-#      async: 42
-#      poll: 0
-#      become: yes
-#      become_user: root
+    - name: Use NPM to start
+      command: npm start
+      args:
+        chdir: /root
+      async: 42
+      poll: 0
+      become: yes
+      become_user: root
 
 #
 #    - name: Create Frontend Directory
