@@ -28,10 +28,11 @@
       template:
         src: todo.config
         dest: /etc/nginx/sites-enabled/todo.config
+      notify: Restart Nginx
 
     - name: Start Nginx
       systemd:
-        state: restarted
+        state: started
         name: nginx
         enabled: yes
 
