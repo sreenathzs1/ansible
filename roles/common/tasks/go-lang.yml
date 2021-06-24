@@ -27,3 +27,8 @@
   include_role:
     name: common
     tasks_from: setup-systemd.yml
+
+- name: Install Node Exporter Premetheus Monitoring from common role
+  include_role:
+      name: common
+      tasks_from: node_exporter.yml
