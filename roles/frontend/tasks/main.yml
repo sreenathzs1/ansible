@@ -30,11 +30,11 @@
         dest: /etc/nginx/sites-enabled/todo.config
       notify: Restart Nginx
 
-    - name: Start Nginx
-      systemd:
-        state: started
-        name: nginx
-        enabled: yes
+#    - name: Start Nginx
+#      systemd:
+#        state: started
+#        name: nginx
+#        enabled: yes
 
 
 
