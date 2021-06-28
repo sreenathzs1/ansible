@@ -53,21 +53,29 @@
           name: common
           tasks_from: node_exporter.yml
 
-    - name: Use NPM to start
-      command: npm start
-      args:
-        chdir: /var/www/html/frontend
-      async: 42
-      poll: 0
-      become: yes
-      become_user: root
+#    - name: Use NPM to start
+#      command: npm start
+#      args:
+#        chdir: /var/www/html/frontend
+#      async: 42
+#      poll: 0
+#      become: yes
+#      become_user: root
 
     
-#
-      #    - name: To start NPM Service
-      #      template:
-      #         src: npmstart.service
-      #         dest: /root
+
+    - name: To start NPM Service
+      template:
+         src: npmstart.service
+         dest: /var/www/html/frontend
+
+    - name: Start npm  Service
+      systemd:
+        name: npm start
+        daemon_reload: yes
+        state: started
+        enabled: yes
+
     # - name: To start npm
     #   shell: npm start
     #   args:

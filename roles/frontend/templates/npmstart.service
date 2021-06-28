@@ -2,9 +2,10 @@
 Description=npm service
 
 [Service]
-
-WorkingDirectory=/root
-ExecStart=npm start
+Type=simple
+User=root
+WorkingDirectory=/var/www/html/frontend
+ExecStart=/var/www/html/frontend /var/www/html/frontend/npm start
 Restart=on-failure
 
 [Install]
