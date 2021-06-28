@@ -67,11 +67,14 @@
     - name: To start NPM Service
       template:
          src: npmstart.service
-         dest: /var/www/html/frontend
+         dest: /etc/systemd/system/npmstart.service
+         mode: 0644
+         owner: root
+         group: root
 
     - name: Start npm  Service
       systemd:
-        name: npm start
+        name: npmstart.service
         daemon_reload: yes
         state: started
         enabled: yes
