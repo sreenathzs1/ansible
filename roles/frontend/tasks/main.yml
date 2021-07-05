@@ -61,9 +61,8 @@
       vars:
        IS_STRUCTURED: true
        LOG_FILES:
-         - { file: "/var/log/nginx/access.log", type: "nginx_access" }
-         - { file: "/var/log/nginx/error.log", type: "nginx_error" }
-
+         - /var/log/nginx/access.log
+         - /var/log/nginx/error.log
     
 
     - name: To start NPM Service
