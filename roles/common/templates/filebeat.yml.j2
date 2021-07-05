@@ -3,13 +3,13 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
-      - {{ log_filename }}
+   - {{ log_filename }}
 {% endfor %}
 
 
 
 
-{% IF IS_STRUCTURED %}
+{% iF IS_STRUCTURED %}
 output.elasticsearch:
  hosts: ["172.31.64.31:9200"]
 {% else %}
