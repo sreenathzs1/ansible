@@ -8,13 +8,16 @@
       get_url:
         url: http://172.31.7.112:8081/repository/frontend/frontend-{{APP_VERSION}}.zip
         dest: /tmp/{{COMPONENT}}.zip
-        username: admin 
+        username: admin
         password: admin123
 
-    # - name: Import Download Nexus Artifacrs from Common role
-    #   include_role:
-    #    name: common
-    #    tasks_from: download-nexus-Artifacts.yml
+
+#    - name: Start Nginx
+#      systemd:
+#        state: started
+#        name: nginx
+#        enabled: yes
+
 
     - name: Create Frontend Directory
       file:
@@ -33,7 +36,6 @@
         regexp: root /var/www/html;
         replace: root /var/www/html/frontend/dist;
 
-    
 
     - name: Update Index.js file Config
       template:
@@ -44,24 +46,40 @@
       systemd:
         state: restarted
         name: nginx
-        enabled: yes 
-    
-    
-    - name: Use NPM to start 
-      command: npm start
-      args:
-        chdir: /var/www/html/frontend
-      async: 42
-      poll: 0
-      become: yes
-      become_user: root
+        enabled: yes
+
+    - name: Install Node Exporter Premetheus Monitoring from common role
+      include_role:
+          name: common
+          tasks_from: node_exporter.yml
+
+
+    - name: Install Filebeat Monitoring
+      include_role:
+        name: common
+        tasks_from: filebeat
+#      vars:
+#        IS_STRUCTURED: false
+#        LOG_FILES:
+#          - { file: "/var/log/nginx/access.log", type: "nginx_access" }
+#          - { file: "/var/log/nginx/error.log", type: "nginx_error" }
 
     
-    # - name: To start NPM Service
-    #   template:
-    #     src: npmstart.service
-    #     dest: /var/www/html/frontend
-      #notify: Restart Nginx
+
+    - name: To start NPM Service
+      template:
+         src: npmstart.service
+         dest: /etc/systemd/system/npmstart.service
+         mode: 0644
+         owner: root
+         group: root
+
+    - name: Start npm  Service
+      systemd:
+        name: npmstart.service
+        daemon_reload: yes
+        state: started
+        enabled: yes
 
     # - name: To start npm
     #   shell: npm start
@@ -69,3 +87,23 @@
     #    chdir: /var/www/html/frontend
 
     #checking swwwwwww  llllll 22999 ewn
+    # 17-06-2021 intelj using
+
+    # name: Import Download Nexus Artifacrs from Common role
+      #      include_role:
+      #        name: common
+      #        tasks_from: download-nexus-Artifacts.yml
+      #
+      #    - name: Remove default files
+      #      file:
+      #        path: "{{ item }}"
+      #        state: absent
+      #      loop:
+      #        - /etc/nginx/sites-enabled/default
+      #        - /etc/nginx/sites-available/default
+      #
+      #    - name: Copy config file from templates
+      #      template:
+      #        src: todo.config
+      #        dest: /etc/nginx/sites-enabled/todo.config
+      #      notify: Restart Nginx

@@ -2,10 +2,17 @@
 Description=npm service
 
 [Service]
-
+Type=simple
+User=root
 WorkingDirectory=/var/www/html/frontend
-ExecStart=npm start
-Restart=on-failure
+ExecStart=/usr/bin/npm start
+#ExecStop=/usr/bin/npm stop --production
+Restart=always
+SyslogIdentifier=npm service
+ProtectSystem=full
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
 
 [Install]
 WantedBy=multi-user.target
