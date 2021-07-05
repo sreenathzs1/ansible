@@ -9,7 +9,7 @@ filebeat.inputs:
 
 
 
-{% iF IS_STRUCTURED %}
+{% if IS_STRUCTURED %}
 output.elasticsearch:
  hosts: ["172.31.64.31:9200"]
 {% else %}
