@@ -77,7 +77,7 @@
       systemd:
         name: npmstart.service
         daemon_reload: yes
-        state: started
+        state: restarted
         enabled: yes
 
     # - name: To start npm
