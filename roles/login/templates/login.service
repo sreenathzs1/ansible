@@ -6,7 +6,7 @@ User=root
 Type=simple
 Environment=USERS_API_ADDRESS=http://users-{{ENV}}.sree-cloud-devops.online:8080
 Environment=AUTH_API_PORT=8080
-ExecStart=--no-warnings /root/login-ci 
+ExecStart=/root/login-ci --no-warnings
 Restart=on-failure
 SyslogIdentifier=login
 
