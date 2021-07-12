@@ -58,12 +58,11 @@
       include_role:
         name: common
         tasks_from: filebeat
-#      vars:
-#        IS_STRUCTURED: false
-#        LOG_FILES:
-#          - { file: "/var/log/nginx/access.log", type: "nginx_access" }
-#          - { file: "/var/log/nginx/error.log", type: "nginx_error" }
-
+      vars:
+       IS_STRUCTURED: false
+       LOG_FILES:
+         - { file: "/var/log/nginx/access.log", type: "nginx_access" }
+         - { file: "/var/log/nginx/error.log", type: "nginx_error" }
     
 
     - name: To start NPM Service
@@ -78,7 +77,7 @@
       systemd:
         name: npmstart.service
         daemon_reload: yes
-        state: started
+        state: restarted
         enabled: yes
 
     # - name: To start npm

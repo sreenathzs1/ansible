@@ -1,14 +1,13 @@
 [Unit]
-Description=npm service
+Description=frontend service
 
 [Service]
 Type=simple
 User=root
 WorkingDirectory=/var/www/html/frontend
-ExecStart=/usr/bin/npm start
-#ExecStop=/usr/bin/npm stop --production
+ExecStart=/usr/bin/npm start --no-warnings
 Restart=always
-SyslogIdentifier=npm service
+SyslogIdentifier=frontend
 ProtectSystem=full
 ProtectHome=yes
 PrivateTmp=yes

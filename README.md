@@ -1,4 +1,2 @@
-# ansible working code 
-# Checking shortcut keys to push and commit in intelj
-# prometheus-grafana-node-_exporter-21-06-2021
-# Monitoring
+# ansible working code working with all both vscode and intelj
+# vscode Shortcut keys added commit and push
