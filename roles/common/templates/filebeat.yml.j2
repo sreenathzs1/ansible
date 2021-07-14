@@ -26,7 +26,7 @@ output.logstash:
 {% if IS_STRUCTURED %}
 setup.template.name: "{{COMPONENT}}"
 setup.template.pattern: "{{COMPONENT}}-*"
-setup.template.pattern: false
+setup.ilm.enabled: false
 {% endif %}
 
 # These are the default came
