@@ -2,7 +2,7 @@ filebeat.inputs:
 {% for log_filename in LOG_FILES %}
 - type: log
 {% if IS_STRUCTURED %}
- json.keys_under_root: true
+  json.keys_under_root: true
 {% endif %}
   enabled: true
   paths:
@@ -17,12 +17,17 @@ filebeat.inputs:
 {% if IS_STRUCTURED %}
 output.elasticsearch:
  hosts: ["172.31.64.31:9200"]
+ index: "{{COMPONENT}}-%{+yyyy.MM.dd}"
 {% else %}
 output.logstash:
  hosts: ["172.31.64.31:5044"]
 {% endif %}
 
-
+{% if IS_STRUCTURED %}
+setup.template.name: "{{COMPONENT}}"
+setup.template.pattern: "{{COMPONENT}}-*"
+setup.template.pattern: false
+{% endif %}
 
 # These are the default came
 filebeat.config.modules:
