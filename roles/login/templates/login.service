@@ -35,5 +35,3 @@ WantedBy=multi-user.target
 
 
 
-
-#Environment=USERS_API_ADDRESS=http://users-{{ENV}}.sree-cloud-devops.online:8080
