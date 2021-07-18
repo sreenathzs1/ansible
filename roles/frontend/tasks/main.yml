@@ -12,11 +12,6 @@
         password: admin123
 
 
-#    - name: Start Nginx
-#      systemd:
-#        state: started
-#        name: nginx
-#        enabled: yes
 
 
     - name: Create Frontend Directory
@@ -48,21 +43,21 @@
         name: nginx
         enabled: yes
 
-    # - name: Install Node Exporter Premetheus Monitoring from common role
-    #   include_role:
-    #       name: common
-    #       tasks_from: node_exporter.yml
+    - name: Install Node Exporter Premetheus Monitoring from common role
+      include_role:
+          name: common
+          tasks_from: node_exporter.yml
 
 
-    # - name: Install Filebeat Monitoring
-    #   include_role:
-    #     name: common
-    #     tasks_from: filebeat
-    #   vars:
-    #    IS_STRUCTURED: false
-    #    LOG_FILES:
-    #      - { file: "/var/log/nginx/access.log", type: "nginx_access" }
-    #      - { file: "/var/log/nginx/error.log", type: "nginx_error" }
+    - name: Install Filebeat Monitoring
+      include_role:
+        name: common
+        tasks_from: filebeat
+      vars:
+       IS_STRUCTURED: false
+       LOG_FILES:
+         - { file: "/var/log/nginx/access.log", type: "nginx_access" }
+         - { file: "/var/log/nginx/error.log", type: "nginx_error" }
     
 
     - name: Copy systemd NPM Service file
@@ -79,6 +74,48 @@
         daemon_reload: yes
         state: restarted
         enabled: yes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#    - name: Start Nginx
+#      systemd:
+#        state: started
+#        name: nginx
+#        enabled: yes
+
+
 
     # - name: To start npm
     #   shell: npm start
