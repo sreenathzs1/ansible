@@ -4,6 +4,51 @@
     tasks_from: java
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # - name: Install JAVA-8
 #   apt:
 #     name: openjdk-8-jdk-headless

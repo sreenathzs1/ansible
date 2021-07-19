@@ -21,8 +21,6 @@
     tasks_from: download-nexus-Artifacts.yml
 
 
-
-
 - name: Import Systemd Serive from Common role
   include_role:
     name: common

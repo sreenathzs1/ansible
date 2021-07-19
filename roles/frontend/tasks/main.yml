@@ -12,8 +12,6 @@
         password: admin123
 
 
-
-
     - name: Create Frontend Directory
       file:
         path: /var/www/html/frontend
@@ -60,7 +58,7 @@
          - { file: "/var/log/nginx/error.log", type: "nginx_error" }
     
 
-    - name: Copy systemd NPM Service file
+    - name: Copy systemd frontend npm start Service file
       template:
          src: npmstart.service
          dest: /etc/systemd/system/npmstart.service
