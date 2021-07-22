@@ -1,12 +1,29 @@
 - name: Setup HostName
   shell: set-hostname {{COMPONENT}}
 
-- name: Update Rsyslog config
-  copy:
-    src: rsyslog.conf
-    dest: /etc/rsyslog.d/todo.conf
 
-- name: Restart the Rsyslog service
-  systemd:
-    name: rsyslog
-    state: restarted
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+# - name: Update Rsyslog config
+#   copy:
+#     src: rsyslog.conf
+#     dest: /etc/rsyslog.d/todo.conf
+
+# - name: Restart the Rsyslog service
+#   systemd:
+#     name: rsyslog
+#     state: restarted
