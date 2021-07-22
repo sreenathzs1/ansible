@@ -28,7 +28,7 @@
         path: /etc/nginx/sites-enabled/default
         regexp: root /var/www/html;
         replace: root /var/www/html/frontend/dist;
-      notify: Restart Nginx
+      
 
 
     # - name: Update Index.js file Config
