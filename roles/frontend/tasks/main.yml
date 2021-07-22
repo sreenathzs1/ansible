@@ -36,11 +36,11 @@
     #     src: index.js
     #     dest: /var/www/html/frontend/config/index.js
 
-    # - name: Start Nginx
-    #   systemd:
-    #     state: restarted
-    #     name: nginx
-    #     enabled: yes
+    - name: Start Nginx
+      systemd:
+        state: restarted
+        name: nginx
+        enabled: yes
 
     
     - name: Copy systemd frontend npm start Service file
