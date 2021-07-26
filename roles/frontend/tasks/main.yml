@@ -30,7 +30,22 @@
         replace: root /var/www/html/frontend/dist;
       notify: Restart Nginx
 
+    - name: Install Node Exporter Premetheus Monitoring from common role
+      include_role:
+          name: common
+          tasks_from: node_exporter.yml
 
+
+    - name: Install Filebeat Monitoring
+      include_role:
+        name: common
+        tasks_from: filebeat
+      vars:
+       IS_STRUCTURED: false
+       LOG_FILES:
+         - { file: "/var/log/nginx/access.log", type: "nginx_access" }
+         - { file: "/var/log/nginx/error.log", type: "nginx_error" }
+    
       
     - name: Copy systemd frontend npm start Service file
       template:
@@ -101,21 +116,6 @@
 
 
 
-    # - name: Install Node Exporter Premetheus Monitoring from common role
-    #   include_role:
-    #       name: common
-    #       tasks_from: node_exporter.yml
-
-
-    # - name: Install Filebeat Monitoring
-    #   include_role:
-    #     name: common
-    #     tasks_from: filebeat
-    #   vars:
-    #    IS_STRUCTURED: false
-    #    LOG_FILES:
-    #      - { file: "/var/log/nginx/access.log", type: "nginx_access" }
-    #      - { file: "/var/log/nginx/error.log", type: "nginx_error" }
     
 
 
