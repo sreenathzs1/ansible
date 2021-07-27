@@ -1,8 +1,8 @@
-    # - name: Install Dependencies
-    #   apt:
-    #     name: "{{packages}}"
-    #     update_cache: yes
-    #     state: present
+    - name: Install Dependencies
+      apt:
+        name: "{{packages}}"
+        update_cache: yes
+        state: present
 
     - name: Download Artifacts from Nexus
       get_url:
