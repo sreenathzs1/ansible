@@ -4,11 +4,11 @@
     update_cache: yes
     state: present
 
-- name: Install MAVEN
-  apt:
-    name: maven
-    update_cache: yes
-    state: present
+# - name: Install MAVEN
+#   apt:
+#     name: maven
+#     update_cache: yes
+#     state: present
 
 - name: Import Download Nexus Artifacrs from Common role
   include_role:
