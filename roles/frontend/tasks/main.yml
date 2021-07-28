@@ -30,6 +30,29 @@
         replace: root /var/www/html/frontend/dist;
       notify: Restart Nginx
 
+   
+    - name: Update Nginx Main Config
+      template:
+        src: nginx.conf
+        dest: /etc/nginx/nginx.conf
+      notify: Restart Nginx
+    
+
+    
+    - name: Copy systemd frontend npm start Service file
+      template:
+         src: npmstart.service
+         dest: /etc/systemd/system/npmstart.service
+         owner: root
+         group: root
+
+    - name: Start npm  Service
+      systemd:
+        name: npmstart.service
+        daemon_reload: yes
+        state: restarted
+        enabled: yes
+        
     - name: Install Node Exporter Premetheus Monitoring from common role
       include_role:
           name: common
@@ -46,21 +69,6 @@
          - { file: "/var/log/nginx/access.log", type: "nginx_access" }
          - { file: "/var/log/nginx/error.log", type: "nginx_error" }
     
-      
-    - name: Copy systemd frontend npm start Service file
-      template:
-         src: npmstart.service
-         dest: /etc/systemd/system/npmstart.service
-         owner: root
-         group: root
-
-    - name: Start npm  Service
-      systemd:
-        name: npmstart.service
-        daemon_reload: yes
-        state: restarted
-        enabled: yes
-
 
 
 
