@@ -1,5 +1,5 @@
 packages:
-   - nginx
+   # - nginx
    - nodejs
    - npm
    - node-node-sass
