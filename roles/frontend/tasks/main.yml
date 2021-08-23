@@ -6,7 +6,7 @@
 
     - name: Download Artifacts from Nexus
       get_url:
-        url: http://172.31.7.112:8081/repository/frontend/frontend-{{APP_VERSION}}.zip
+        url: http://172.31.13.155:8081/repository/frontend/frontend-{{APP_VERSION}}.zip
         dest: /tmp/{{COMPONENT}}.zip
         username: admin
         password: admin123
